@@ -9,7 +9,7 @@ for i in range(int(input())):
         time1[in1[j]] += [i] #存入字典
 
 list2  = []
-for k in time1: #印出每小時有多少人
+for k in time1: #印出每小時有多少人 用來若沒有超過十二人 尋找最多人的時候
     list2.append([k,len(time1[k])])
 #print(list2)
 
@@ -25,13 +25,13 @@ for m in range(24):#計算連續時間
     list1.append([m,x])
 #print(list1)
 b = 0
-for x in range(24):
+for x in range(24): #檢查是否有滿12人
     if list1[x][1] == 0:
         b += 1
-if b == 24 :
-    list2 = sorted(list2,key=lambda x:x[1],reverse=True)
-    print(list2[0][0])
-else:
-    list1 = sorted(list1,key=lambda x:x[0])
-    list1 = sorted(list1,key=lambda x:x[1],reverse=True)
+if b != 24: #檢查後印出最長的連續時間
+    list1 = sorted(list1,key=lambda x:x[0]) #排序連續時間
+    list1 = sorted(list1,key=lambda x:x[1],reverse=True) #排序最早時間
     print(list1[0][0])
+else: 
+    list2 = sorted(list2,key=lambda x:x[1],reverse=True) #排序最多人的時間
+    print(list2[0][0])
