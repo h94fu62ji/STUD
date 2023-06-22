@@ -16,4 +16,6 @@ else:
             lis2.append(lis1[i] + lis1[i+1])
         lis2.append(1)
         liss.append(lis2)
-    print(liss)
+    #print(liss)
+    for k in liss:
+        print(k)
